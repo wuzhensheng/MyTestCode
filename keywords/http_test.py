@@ -17,17 +17,17 @@ http = HTTP()
 #
 # http.assertquals('token', http.jsonres['token'])
 http.post(path=url)
-http.assertquals('status', 200)
-http.seavjson('t', 'token')
+http.assertequals('status', 200)
+http.savejson('t', 'token')
 http.addheader('token', '{t}')
 print(http.session.headers)
 
 
 #登录一个用户，查询用户信息
 http.post('http://112.74.191.10:8081/inter/HTTP/login', 'username=Tester55&password=123456')
-http.assertquals('status', 200)
-http.seavjson('id', 'userid')
+http.assertequals('status', 200)
+http.savejson('id', 'userid')
 http.post('http://112.74.191.10:8081/inter/HTTP/getUserInfo', 'id={id}')
-http.assertquals('status', 200)
+http.assertequals('status', 200)
 http.post('http://112.74.191.10:8081/inter/HTTP/logout')
-http.assertquals('status', 200)
+http.assertequals('status', 200)

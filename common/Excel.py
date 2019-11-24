@@ -169,19 +169,19 @@ class Writer:
 
 # 调试
 if __name__ == '__main__':
-    # reader = Reader()
-    # reader.open_excle('../lib/cases/HTTP接口用例.xls')
-    # sheetname = reader.get_sheets()
-    # for sheet in sheetname:
-    #     # 设置当前读取的sheet页面
-    #     reader.set_sheet(sheet)
-    #     # 遍历读取所有的sheet页面的内容
-    #     for i in range(reader.rows):
-    #         print(reader.readine())
+    reader = Reader()
+    reader.open_excle('../lib/cases/HTTP接口用例.xls')
+    sheetname = reader.get_sheets()
+    for sheet in sheetname:
+        # 设置当前读取的sheet页面
+        reader.set_sheet(sheet)
+        # 遍历读取所有的sheet页面的内容
+        for i in range(reader.rows):
+            print(reader.readine())
 
-    writer = Writer()
-    writer.copy_open('../lib/cases/HTTP接口用例.xls', '../lib/results/result-HTTP接口用例.xls')
-    sheetname = writer.get_sheets()
-    writer.set_sheet(sheetname[0])
-    writer.write(1, 1, 'www')
-    writer.save_close()
+    # writer = Writer()
+    # writer.copy_open('../lib/cases/HTTP接口用例.xls', '../lib/results/result-HTTP接口用例.xls')
+    # sheetname = writer.get_sheets()
+    # writer.set_sheet(sheetname[0])
+    # writer.write(1, 1, 'www')
+    # writer.save_close()
