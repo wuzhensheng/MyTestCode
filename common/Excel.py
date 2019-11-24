@@ -4,7 +4,6 @@ import os
 import xlrd
 from xlutils.copy import copy
 
-
 class Reader:
     """
     用来读取Excel文件内容
@@ -141,12 +140,12 @@ class Writer:
         # 获取要写入的单元格
         def _getCell(sheet, r, c):
             # 获取行
-            row = sheet._Worksheet_rows.get(r)
+            row = sheet._Worksheet__rows.get(r)
             if not row:
                 return None
 
             # 获取单元格
-            cell = row._Row_cells.get(c)
+            cell = row._Row__cells.get(c)
             return cell
 
         # 获取要写入的单元格
@@ -176,12 +175,13 @@ if __name__ == '__main__':
     # for sheet in sheetname:
     #     # 设置当前读取的sheet页面
     #     reader.set_sheet(sheet)
-    # for i in range(reader.rows):
-    #     print(reader.readine())
+    #     # 遍历读取所有的sheet页面的内容
+    #     for i in range(reader.rows):
+    #         print(reader.readine())
 
     writer = Writer()
     writer.copy_open('../lib/cases/HTTP接口用例.xls', '../lib/results/result-HTTP接口用例.xls')
     sheetname = writer.get_sheets()
     writer.set_sheet(sheetname[0])
-    writer.write(1, 1, 'wwww')
+    writer.write(1, 1, 'www')
     writer.save_close()
