@@ -14,6 +14,8 @@ class HTTP:
         self.params = {}
         self.url = {}
         # 写入结果的excel
+
+
         self.writer = writer
 
     # 设置地址
